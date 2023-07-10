@@ -12,6 +12,6 @@ export class PassagemService {
   constructor(private http: HttpClient) { }
 
   getPassagens(search: {}){
-    return this.http.get<Resultado>(this.apiUrl + 'passagem/search', {params: search})
+    return this.http.get<Resultado>(this.apiUrl + '/passagem/search', {params: search})
   }
 }

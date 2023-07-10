@@ -17,8 +17,17 @@ export class BuscaComponent {
   ) {}
 
   ngOnInit() {
-    this.passagemSrv.getPassagens({}).subscribe((resultado) => {
-      this.resultados = resultado.resultado;
-    });
+    this.route.queryParams.subscribe(
+      params => {
+        console.log(params);
+        this.passagemSrv.getPassagens(params).subscribe(
+          resultado => {
+            this.resultados = resultado.resultado;
+            console.log(this.resultados);
+
+          }
+        )
+      }
+    )
   }
 }
