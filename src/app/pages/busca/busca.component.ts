@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { PassagemService } from 'src/app/core/services/passagem.service';
 import { Passagem } from 'src/app/core/types/type';
 
@@ -10,6 +10,7 @@ import { Passagem } from 'src/app/core/types/type';
 })
 export class BuscaComponent {
   resultados!: Passagem[];
+  conteudoDeBusca!: Params;
 
   constructor(
     private route: ActivatedRoute,
@@ -19,7 +20,8 @@ export class BuscaComponent {
   ngOnInit() {
     this.route.queryParams.subscribe(
       params => {
-        console.log(params);
+        this.conteudoDeBusca = params;
+        console.log(this.conteudoDeBusca);
         this.passagemSrv.getPassagens(params).subscribe(
           resultado => {
             this.resultados = resultado.resultado;

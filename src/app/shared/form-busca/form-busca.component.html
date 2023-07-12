@@ -45,7 +45,7 @@
       </mat-form-field>
       <mat-form-field class="input-container" appearance="outline">
         <mat-label>Data da volta</mat-label>
-        <input matInput [matDatepicker]="volta" formControlName="dataVolta">
+        <input matInput [matDatepicker]="volta" formControlName="dataVolta" [disabled]="formBuscaService.formBusca.get('somenteIda')?.value">
         <mat-datepicker-toggle matIconSuffix [for]="volta"></mat-datepicker-toggle>
         <mat-datepicker #volta></mat-datepicker>
       </mat-form-field>
