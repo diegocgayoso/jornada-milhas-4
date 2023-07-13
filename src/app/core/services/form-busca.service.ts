@@ -12,9 +12,10 @@ export class FormBuscaService {
   formBusca: FormGroup;
 
   constructor(private dialog: MatDialog) {
-
+    const somenteIda = new FormControl(false, [Validators.required])
+    const dataVolta = new FormControl(null, [Validators.required])
     this.formBusca = new FormGroup({
-      somenteIda: new FormControl(false, [Validators.required]),
+      somenteIda,
       origem: new FormControl(null, [Validators.required]),
       destino: new FormControl(null, [Validators.required]),
       tipo: new FormControl("Executiva"),
@@ -22,10 +23,22 @@ export class FormBuscaService {
       criancas: new FormControl(0),
       bebes: new FormControl(1),
       dataIda: new FormControl(null, [Validators.required]),
-      dataVolta: new FormControl(null),
+      dataVolta,
       pagina: new FormControl(1),
       porPagina: new FormControl(5)
     })
+
+    somenteIda.valueChanges.subscribe(
+      somenteIda => {
+      if(somenteIda){
+        dataVolta.disable();
+        dataVolta.setValidators(null)
+      }else{
+        dataVolta.enable();
+        dataVolta.setValidators([Validators.required])
+      }
+      dataVolta.updateValueAndValidity
+    });
   }
 
   getDescricaoPassageiros (): string {

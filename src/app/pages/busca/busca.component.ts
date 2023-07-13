@@ -21,11 +21,11 @@ export class BuscaComponent {
     this.route.queryParams.subscribe(
       params => {
         this.conteudoDeBusca = params;
-        console.log(this.conteudoDeBusca);
+        // console.log(this.conteudoDeBusca);
         this.passagemSrv.getPassagens(params).subscribe(
           resultado => {
             this.resultados = resultado.resultado;
-            console.log(this.resultados);
+            // console.log(this.resultados);
 
           }
         )

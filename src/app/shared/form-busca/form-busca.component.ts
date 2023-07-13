@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuscaService } from 'src/app/core/services/form-busca.service';
+import { Passagem } from 'src/app/core/types/type';
 
 @Component({
   selector: 'app-form-busca',
@@ -15,11 +16,11 @@ export class FormBuscaComponent {
 
   buscar() {
     if (this.formBuscaService.formBusca.valid) {
-      const formBuscaValue = this.formBuscaService.formBusca.value;
+      const formBuscaValue: Passagem = this.formBuscaService.formBusca.value;
       this.router.navigate(['busca'], { queryParams: formBuscaValue });
-      console.log(formBuscaValue);
+      // console.log(formBuscaValue);
     } else {
-      console.log('form invalido');
+      console.error('Form invalido');
     }
   }
 }
