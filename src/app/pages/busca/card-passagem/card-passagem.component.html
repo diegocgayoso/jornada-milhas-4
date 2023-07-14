@@ -16,7 +16,7 @@
           Origem
         </p>
         <p class="box-roxo f-sz-1">
-          {{infoPassagem.origem.nome}}
+          {{infoPassagem.origemId}}
         </p>
       </div>
       <div class="infos-trajeto ">
@@ -24,7 +24,7 @@
           Destino
         </p>
         <p class="box-roxo f-sz-1">
-          {{infoPassagem.destino.nome}}
+          {{infoPassagem.destinoId}}
         </p>
       </div>
     </div>
@@ -43,14 +43,14 @@
     </div>
   </div>
   <div class="detalhes-preco">
-    <p class="preco box-roxo">R${{ infoPassagem.taxaEmbarque + infoPassagem.precoIda }}</p>
+    <p class="preco box-roxo">R${{ infoPassagem.precoMax }}</p>
     <div>
       <div class="d-flex flex-s-between">
         <p>
           1 adulto, econômica
         </p>
         <p>
-          R$ {{ infoPassagem.precoIda }}
+          R$ {{ infoPassagem.precoMax }}
         </p>
       </div>
       <div class="d-flex flex-s-between">
@@ -58,7 +58,7 @@
           Taxa de embarque
         </p>
         <p>
-          R$ {{ infoPassagem.taxaEmbarque }}
+          R$ 123exemplo
         </p>
       </div>
     </div>
@@ -69,7 +69,7 @@
         Total
       </p>
       <p class="f-we-600 f-sz-2">
-        R$ {{ infoPassagem.taxaEmbarque + infoPassagem.precoIda }}
+        R$ {{ 123 + infoPassagem.precoMax }}
       </p>
     </div>
     <div class="pagamento d-flex flex-s-between">

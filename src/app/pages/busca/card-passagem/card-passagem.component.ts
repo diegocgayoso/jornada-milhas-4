@@ -1,3 +1,4 @@
+import { UnidadeFederativaService } from 'src/app/core/services/unidade-federativa.service';
 import { Component, Input } from '@angular/core';
 import { Passagem } from 'src/app/core/types/type';
 
@@ -8,4 +9,10 @@ import { Passagem } from 'src/app/core/types/type';
 })
 export class CardPassagemComponent {
   @Input() infoPassagem! : Passagem;
+  constructor(private ufService: UnidadeFederativaService){}
+  ngOnInit(): void {
+   this.ufService.listar().subscribe({
+
+   })
+  }
 }

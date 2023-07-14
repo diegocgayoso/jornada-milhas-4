@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuscaService } from 'src/app/core/services/form-busca.service';
 import { Passagem } from 'src/app/core/types/type';
@@ -9,18 +9,17 @@ import { Passagem } from 'src/app/core/types/type';
   styleUrls: ['./form-busca.component.scss'],
 })
 export class FormBuscaComponent {
+  @Output() realizarBusca = new EventEmitter<Passagem>();
   constructor(
     public formBuscaService: FormBuscaService,
     private router: Router
   ) {}
 
   buscar() {
-    if (this.formBuscaService.formBusca.valid) {
-      const formBuscaValue: Passagem = this.formBuscaService.formBusca.value;
-      this.router.navigate(['busca'], { queryParams: formBuscaValue });
-      // console.log(formBuscaValue);
-    } else {
-      console.error('Form invalido');
+    const formBuscaValue = this.formBuscaService.obterFiltros();
+    if(formBuscaValue){
+      // this.router.navigate(['busca'], { queryParams: formBuscaValue });
+      this.realizarBusca.emit(formBuscaValue);
     }
   }
 }

@@ -1,0 +1,19 @@
+<form class="slider-preco">
+  <h4 class="title">Periodo</h4>
+  <div class="label-container">
+    <label id="name-label" class="name-label">Manhã</label>
+    <label id="name-label" class="name-label">Tarde</label>
+    <label class="example-value-label">Noite</label>
+  </div>
+  <mat-slider
+    [(ngModel)]="selectedHour"
+    [min]="0"
+    [max]="24"
+    [step]="12"
+    thumbLabel
+    tickInterval="1"
+    aria-label="Slider para selecionar a hora do dia"
+  >
+    <input matSliderThumb [(ngModel)]="periodo" name="periodo" />
+  </mat-slider>
+</form>

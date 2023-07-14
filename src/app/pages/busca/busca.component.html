@@ -3,7 +3,7 @@
     <img src="assets/imagens/banner-busca.png" alt="">
   </div>
   <app-container>
-    <app-form-busca ></app-form-busca>
+    <app-form-busca (realizarBusca)="atualizarPassagens()"></app-form-busca>
   </app-container>
   <app-container>
     <div class="container-busca">
@@ -11,8 +11,11 @@
         <h4 class="title-aside">Filtro</h4>
         <app-paradas></app-paradas>
         <mat-divider></mat-divider>
+        <app-companhia></app-companhia>
+        <mat-divider></mat-divider>
         <app-precos></app-precos>
         <mat-divider></mat-divider>
+        <app-periodo></app-periodo>
         <button mat-flat-button color="primary">BUSCAR</button>
       </aside>
       <div class="result-busca">
@@ -21,9 +24,11 @@
           <app-card-recomendado></app-card-recomendado>
           <app-card-recomendado></app-card-recomendado>
         </div>
-        <div class="cards-passagens" *ngFor="let passagem of resultados">
-          <app-card-passagem [infoPassagem]="passagem">
-          </app-card-passagem>
+        <div class="cards-passagens" *ngIf="resultados.length > 0; else semResultados">
+          <div *ngFor="let passagem of resultados">
+            <app-card-passagem [infoPassagem]="passagem">
+            </app-card-passagem>
+          </div>
         </div>
         <ng-template #semResultados>
           Sem passagens no momento.

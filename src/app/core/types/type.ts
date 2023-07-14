@@ -19,17 +19,22 @@ export interface Depoimento {
 }
 
 export interface Passagem {
-  tipo:         string;
-  precoIda:     number;
-  precoVolta:   number;
-  taxaEmbarque: number;
-  conexoes:     number;
-  tempoVoo:     number;
-  origem:       UnidadeFederativa;
-  destino:      UnidadeFederativa;
-  companhia:    Companhia;
-  dataIda:      Date;
-  dataVolta:    Date;
+  somenteIda:           boolean;
+  passageirosAdultos:   number;
+  passageirosCriancas:  number;
+  passageirosBebes:     number;
+  tipo:                 string;
+  origemId:             number;
+  destinoId:            number;
+  precoMin:             number;
+  precoMax:             number;
+  conexoes:             number;
+  tempoVoo:             number;
+  dataIda:              string;
+  dataVolta:            string;
+  companhiaId:          number;
+  pagina:               number;
+  porPagina:            number
 }
 
 export interface Companhia {
@@ -43,3 +48,17 @@ export interface Resultado {
   total:        number;
   resultado:    Passagem[];
 }
+
+// export interface PassagemDto{
+//   tipo:	string;
+//   precoIda:	number;
+//   precoVolta:	number;
+//   taxaEmbarque:	number;
+//   conexoes:	number;
+//   tempoVoo:	number;
+//   origem:	UnidadeFederativa;
+//   destino:	UnidadeFederativa;
+//   companhia:	Companhia;
+//   dataIda:	string;
+//   dataVolta:	string;
+//   }

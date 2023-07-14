@@ -42,6 +42,8 @@ import { CardRecomendadoComponent } from './pages/busca/card-recomendado/card-re
 import { ParadasComponent } from './pages/busca/paradas/paradas.component';
 import { PrecosComponent } from './pages/busca/precos/precos.component';
 import { CardPassagemComponent } from './pages/busca/card-passagem/card-passagem.component';
+import { CompanhiaComponent } from './pages/busca/companhia/companhia.component';
+import { PeriodoComponent } from './pages/busca/periodo/periodo.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +67,9 @@ import { CardPassagemComponent } from './pages/busca/card-passagem/card-passagem
     CardRecomendadoComponent,
     ParadasComponent,
     PrecosComponent,
-    CardPassagemComponent
+    CardPassagemComponent,
+    CompanhiaComponent,
+    PeriodoComponent
   ],
   imports: [
     BrowserModule,
